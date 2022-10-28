@@ -1,0 +1,31 @@
+<div class="text text-center display-5 m-5">This is your cart:</div>
+
+<div class="container">
+  <div
+    class="card m-4 d-inline-block container"
+    style="width: 18rem"
+    *ngFor="let item of items; index as i"
+  >
+    <div class="bg-info w-25 m-3 text-center"></div>
+    <img src="{{ item.img }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 routerLink="../products/{{ i }}" class="card-title">
+        {{ item.name }}
+      </h5>
+      <p class="card-text">Ingredients: {{ item.description }}</p>
+      <p class="card-text">Price: {{ item.price | currency }}</p>
+      <p class="card-text">Availability: {{ item.availability }}</p>
+    </div>
+
+    <div class="card-body">
+      <button
+        type="button"
+        class="btn btn-danger mx-4"
+        routerLink="../products/{{ i }}"
+      >
+        Details
+      </button>
+      <button type="button" class="btn btn-info">Order</button>
+    </div>
+  </div>
+</div>
